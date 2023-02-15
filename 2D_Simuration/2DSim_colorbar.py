@@ -41,6 +41,7 @@ def main():
     image_list = []
 
     for step_num in tqdm(range(total_step)): #loop of time x,y方向
+    # for step_num in tqdm(range(300)):
         Ez_t1[1][1] = init_stat(step_num, alfa, τ0) #格子番号1のEzに初期値(時間関数)を与える
         for i in range(1, Ny-1):
             for j in range(1, Nx-1):
@@ -64,16 +65,16 @@ def main():
         im = plt.imshow(Ez_t1, animated=True, vmin=0, vmax=0.1)
         if(step_num == 0):
             bar = fig.colorbar(im, orientation="vertical")
-            bar.mappable.set_clim(0,0.1)
+            bar.mappable.set_clim(0,1)
         image_list.append([im])
 
         Ez_t1 = Ez_t2
         By_t1 = By_t2
         Bx_t1 = Bx_t2
-        plt.savefig("./fig_colorbar/fig" + str(step_num) + ".png")
+        # plt.savefig("./fig_colorbar/fig" + str(step_num) + ".png")
 
     ani = animation.ArtistAnimation(fig, image_list, interval=1)
-    ani.save("test2_colorbar.gif", writer="pillow")
+    # ani.save("test2_colorbar.gif", writer="pillow")
     plt.show()
 
 if __name__ == '__main__':

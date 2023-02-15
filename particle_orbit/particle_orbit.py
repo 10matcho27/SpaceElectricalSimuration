@@ -50,7 +50,7 @@ class Particle():
         self.energy_all.append((1/2) * self.mass * (self.v)**2)
 
 if __name__ == '__main__':
-    E = np.array([0, 0, 1])
+    E = np.array([0, 0, 0])
     B = np.array([0, 0, 1])
     time_step = 1000
     dt = 1 / (50)
@@ -72,7 +72,7 @@ if __name__ == '__main__':
     ax.set_ylabel("y")
     ax.set_zlabel("z")
     ax.grid()
-    ax.view_init(elev=5, azim=30)
+    ax.view_init(elev=80, azim=45)
     ax.set_aspect('auto')
     image_list = []
 
@@ -101,4 +101,4 @@ if __name__ == '__main__':
     ani = animation.ArtistAnimation(fig, image_list, interval=5)
     plt.show()
     # ani.save("orbit_comp_3D.gif", writer='pillow')
-    # ani.save("orbit_comp_3D_6.mp4", writer='ffmpeg')
+    ani.save("orbit_comp_3D_0.mp4", writer='ffmpeg')
